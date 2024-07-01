@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Running...</h1>
+  </body>
+  <script defer>
+    async function loadAndRunWasm() {
+      const response = await fetch("./test.wasm");
+      const bytes = await response.arrayBuffer();
+      const { instance } = await WebAssembly.instantiate(bytes);
+
+      instance.exports._main();
+
+      const result = instance.exports._compute();
+
+      document.querySelector("h1").textContent = result;
+    }
+
+    loadAndRunWasm();
+  </script>
+</html>
