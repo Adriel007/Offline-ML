@@ -12,7 +12,7 @@
     function compute() {
       let sum = 0.0;
       for (let i = 0; i < 100000000; i++) {
-        sum += Math.sin(i) * Math.cos(i);
+        sum += (Math.sin(i) * Math.cos(i)) / new Date().getMilliseconds();
       }
       return sum;
     }
@@ -22,6 +22,6 @@
     const end = performance.now();
 
     document.querySelector("h1").textContent =
-      "Time spent:" + (end - start) / 1000 + "seconds";
+      "Time spent: " + (end - start) / 1000 + " seconds";
   </script>
 </html>

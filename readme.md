@@ -1,43 +1,44 @@
 # Compile
 ## Node
 ```bash
-node test-node-bun.js
+node ./codes/test-node-bun.js
 ```
 
 ## Bun
 ```bash
-bun test-node-bun.js
+bun ./codes/test-node-bun.js
 ```
 
 ## JS (Vanilla in Spyder Monkey)
 ```bash
 python3 -m http.server 
-#http://localhost:8000/test-js.html
+#http://localhost:8000/codes/test-js.html
 ```
 
 ## PHP
 ```bash
-php test.php
+php ./codes/test.php
 ```
 
 ## C
 ```bash
-gcc test.c -o test -lm -O3 && ./test
+gcc ./codes/test.c -o ./codes/test -lm -O3 && ./codes/test
 ```
 
 ## WASM (Optimization flags isn't working)
 ```bash
-emcc test.c -o test.wasm -s WASM=1 -s SIDE_MODULE=1 -O3
+emcc ./codes/test.c -o ./codes/test.wasm -s WASM=1 -s SIDE_MODULE=1 -O3
 python3 -m http.server
-#http://localhost:8000/test.html
+#http://localhost:8000/codes/test.html
 ```
 
 # Results
-|  Runs  |   Bun   |   Node   |   PHP    |   C (O3 + lm)   |  JS (Vanilla)  |  WASM  |
-| :----: | :-----: | :------: | :------: | :-------------: | :------------: | :----: |
-|    1   |  2.87s  |  18.86s  |  5.40s   |  1.51s          |  2.26s         |  null  |
-|    2   |  2.30s  |  18.83s  |  5.49s   |  1.51s          |  2.53s         |  null  |
-|    3   |  2.32s  |  18.79s  |  5.46s   |  1.51s          |  2.52s         |  null  |
-|    4   |  2.30s  |  18.66s  |  5.50s   |  1.52s          |  2.53s         |  null  |
-|    5   |  2.32s  |  18.81s  |  5.39s   |  1.53s          |  2.54s         |  null  |
-| **Average** | **2.42s** | **18.79s** | **5.45s** | **1.52s** | **3.09s** | **null** | 
+
+|  Runs  |   Bun   |    Node    |    PHP    |  C (O3 + lm)  | JS (Vanilla) |  WASM  |
+| :----: | :-----: | :--------: | :-------: | :-----------: | :----------: | :----: |
+|    1   |  6.73s  |  34.075s   |  8.632s   |     3.767s    |   16.407s    |  null  |
+|    2   |  6.67s  |  34.473s   |  8.599s   |     3.763s    |   16.369s    |  null  |
+|    3   |  6.75s  |  33.889s   |  8.533s   |     3.759s    |   16.514s    |  null  |
+|    4   |  6.57s  |  33.791s   |  8.578s   |     3.723s    |   16.098s    |  null  |
+|    5   |  6.60s  |  33.818s   |  8.602s   |     3.754s    |   16.391s    |  null  |
+| **Average** | **6.66s** | **34.009s** | **8.589s** | **3.753s** | **16.356s** | **null** |

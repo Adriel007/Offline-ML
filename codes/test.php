@@ -3,7 +3,7 @@ function compute()
 {
     $sum = 0.0;
     for ($i = 0; $i < 100000000; $i++) {
-        $sum += sin($i) * cos($i);
+        $sum += (sin($i) * cos($i)) / (microtime(true) * 1000);
     }
     return $sum;
 }
