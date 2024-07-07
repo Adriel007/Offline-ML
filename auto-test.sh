@@ -16,7 +16,7 @@ echo "----------------------------" >> ./output.txt
 echo "Node Test:" >> ./output.txt
 for i in {1..5}
 do
-    node ./codes/test-node-bun.js >> ./output.txt 2>&1
+    node ./codes/test-node-bun.js --optimize --max-old-space-size >> ./output.txt 2>&1
 done
 
 echo "----------------------------" >> ./output.txt

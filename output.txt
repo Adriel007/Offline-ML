@@ -1,30 +1,30 @@
 Bun Test:
-[6.73s] Execution Time
-[6.67s] Execution Time
+[6.82s] Execution Time
+[6.81s] Execution Time
+[6.77s] Execution Time
 [6.75s] Execution Time
-[6.57s] Execution Time
-[6.60s] Execution Time
+[6.74s] Execution Time
 ----------------------------
 Node Test:
-Execution Time: 34.075s
-Execution Time: 34.473s
-Execution Time: 33.889s
-Execution Time: 33.791s
-Execution Time: 33.818s
+Execution Time: 36.103s
+Execution Time: 34.795s
+Execution Time: 34.787s
+Execution Time: 34.723s
+Execution Time: 34.836s
 ----------------------------
 PHP Test:
-Time spent: 8.6322770118713 seconds
-Time spent: 8.5990970134735 seconds
-Time spent: 8.5329110622406 seconds
-Time spent: 8.5780110359192 seconds
-Time spent: 8.6021189689636 seconds
+Time spent: 8.8154258728027 seconds
+Time spent: 8.8452351093292 seconds
+Time spent: 8.9392211437225 seconds
+Time spent: 9.0250658988953 seconds
+Time spent: 9.0134148597717 seconds
 ----------------------------
 C (O3 + lm) Test:
-Time spent: 3.766823 seconds
-Time spent: 3.762665 seconds
-Time spent: 3.759438 seconds
-Time spent: 3.723450 seconds
-Time spent: 3.753782 seconds
+Time spent: 3.762575 seconds
+Time spent: 3.879878 seconds
+Time spent: 3.878242 seconds
+Time spent: 3.766111 seconds
+Time spent: 3.782099 seconds
 ----------------------------
 JS (Vanilla in Spyder Monkey):
 Time spent: 16.407 seconds
@@ -39,4 +39,3 @@ Time spent: 15.672 seconds
 Time spent: 15.511 seconds
 Time spent: 15.537 seconds
 Time spent: 15.531 seconds
-
