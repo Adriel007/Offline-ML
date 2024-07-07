@@ -1,5 +1,10 @@
 #!/bin/bash
+# aviso de confirmação avisando que isso apagara todo o conteudo do arquivo incluindo os testes manuais, deseja confirmar? Y/N
 
+read -p "Run tests will erase all content in output.txt file and manual tests. Are you sure? (Y/N): " confirm
+if [ "$confirm" != "Y" ]; then
+    exit
+fi
 echo "Bun Test:" > ./output.txt
 for i in {1..5}
 do

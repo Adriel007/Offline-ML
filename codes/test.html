@@ -3,24 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>WebAssembly Example</title>
   </head>
   <body>
-    <h1>Running...</h1>
+    <h1 id="result">Running...</h1>
+
+    <script>
+      fetch("test.wasm")
+        .then((response) => response.arrayBuffer())
+        .then((buffer) =>
+          WebAssembly.instantiate(buffer, {
+            wasi_snapshot_preview1: {
+              fd_write: (fd, iovs, iovs_len, nwritten) => 0,
+              fd_close: (fd) => 0,
+              fd_seek: (fd, offset_low, offset_high, whence, new_offset) => 0,
+              fd_read: (fd, iovs, iovs_len, nread) => 0,
+              clock_time_get: (id, precision, time) => 0,
+              proc_exit: (rval) => console.log("Exit called with code:", rval),
+            },
+          })
+        )
+        .then((module) => {
+          const start = performance.now();
+          const result = module.instance.exports.main();
+          const end = performance.now();
+          const timeSpent = (end - start) / 1000;
+          document.querySelector("#result").textContent =
+            "Time spent: " + timeSpent + " seconds";
+        });
+    </script>
   </body>
-  <script defer>
-    async function loadAndRunWasm() {
-      const response = await fetch("./test.wasm");
-      const bytes = await response.arrayBuffer();
-      const { instance } = await WebAssembly.instantiate(bytes);
-
-      instance.exports._main();
-
-      const result = instance.exports._compute();
-
-      document.querySelector("h1").textContent = result;
-    }
-
-    loadAndRunWasm();
-  </script>
 </html>

@@ -1,7 +1,6 @@
 #include <math.h>
 #include <time.h>
 #include <sys/time.h>
-#include <stdio.h>
 
 #define NUM_ITERATIONS 100000000
 
@@ -24,13 +23,6 @@ double compute()
 
 int main()
 {
-    clock_t start = clock();
-    double result = compute();
-    clock_t end = clock();
-
-    double time_spent = (double)(end - start) / CLOCKS_PER_SEC;
-    printf("Result: %f\n", result);
-    printf("Time spent: %f seconds\n", time_spent);
-
-    return (int)(time_spent * 1000);
+    compute();
+    return 0;
 }

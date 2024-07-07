@@ -32,4 +32,11 @@ Time spent: 16.369 seconds
 Time spent: 16.514 seconds
 Time spent: 16.098 seconds
 Time spent: 16.391 seconds
+----------------------------
+WASM (Front End):
+Time spent: 15.556 seconds
+Time spent: 15.672 seconds
+Time spent: 15.511 seconds
+Time spent: 15.537 seconds
+Time spent: 15.531 seconds
 
