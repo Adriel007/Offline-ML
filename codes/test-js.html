@@ -1,27 +1,53 @@
 <!DOCTYPE html>
-<html lang="pt">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Test</title>
-  </head>
-  <body>
-    <h1>Running...</h1>
-  </body>
-  <script defer>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="run()">start</button>
+    <p id="ttt">total time: </p>
+    <p id="avg">average time: </p>
+
+    <p>time 1: <span></span></p>
+    <p>time 2: <span></span></p>
+    <p>time 3: <span></span></p>
+    <p>time 4: <span></span></p>
+    <p>time 5: <span></span></p>
+    <p>time 6: <span></span></p>
+    <p>time 7: <span></span></p>
+    <p>time 8: <span></span></p>
+    <p>time 9: <span></span></p>
+    <p>time 10: <span></span></p>
+    
+    
+
+    <script defer>
     function compute() {
-      let sum = 0.0;
-      for (let i = 0; i < 100000000; i++) {
-        sum += (Math.sin(i) * Math.cos(i)) / new Date().getMilliseconds();
-      }
-      return sum;
+        let sum = 0.0;
+            for (let i = 0; i < 100000000; i++) {
+                sum += (Math.sin(i) * Math.cos(i)) / new Date().getMilliseconds();
+            }
+        return sum;
     }
 
-    const start = performance.now();
-    const result = compute();
-    const end = performance.now();
+    function run() {
+        let avg = 0
+        for(let i=0; i<10; i++){
+            let start = performance.now();
+            let result = compute();
+            let end = performance.now();
+            let dt = (end - start) / 1000
+            document.querySelectorAll("span")[i].textContent = dt;
+            console.log(i+1, dt)
+            avg += dt
+        }
+        document.querySelector("#avg").textContent = "avg: " + avg/10
+        document.querySelector("#ttt").textContent = "total time: " + avg
+    }
 
-    document.querySelector("h1").textContent =
-      "Time spent: " + (end - start) / 1000 + " seconds";
-  </script>
+
+    </script>
+</body>
 </html>
